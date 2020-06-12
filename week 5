@@ -1,0 +1,22 @@
+fname=input('Enter the file name:')
+fh=open(fname)
+lst=list()
+dct=dict()
+for line in fh:
+    if not line.startswith('From:'):
+        continue
+    else:
+        a=line.strip()
+        b=a.split()
+        c=b[1]
+        lst.append(c)
+for i in lst:
+    if i not in dct:
+    dct[i]=1
+        else:
+            dct[i]=dct[i]+1
+d=dct.values()
+e=max(d)
+for x,y in dct.items():
+    if y==e:
+        print(x,y)
